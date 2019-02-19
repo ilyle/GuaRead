@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_primary">#ffd500</color>
+    <color name="color_primary_dark">#f8b500</color>
+    <color name="color_accent">#ff4081</color>
+
+    <!--其他常用颜色：-->
+    <color name="transparent">#00000000</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+    <color name="text_black_primary">#df000000</color> <!-- 主字体颜色 87%黑色 -->
+    <color name="text_black_secondary">#54000000</color> <!-- 次要字体颜色 54%黑色 -->
+    <color name="text_black_hint">#27000000</color> <!-- 提示类字体颜色 27%黑色 -->
+
+    <color name="color_layout_background">#fafafa</color>
+</resources>
