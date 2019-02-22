@@ -6,4 +6,10 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string name="topic">热门话题</string>
+    <string name="science">科技动态</string>
+    <string name="developer">开发者资讯</string>
+    <string name="chaim">区块链</string>
+    <string name="mine">我的</string>
 </resources>

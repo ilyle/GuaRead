@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -25,11 +26,22 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:design:28.0.0'
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    api 'org.jetbrains.kotlin:kotlin-reflect:1.3.20'
+    /**
+     * dagger2
+     */
+    api 'com.google.dagger:dagger:2.17'
+    kapt 'com.google.dagger:dagger-compiler:2.17' // If you are using Kotlin, replace annotationProcessor with kapt.
+    /**
+     * Arouter
+     */
+    api ('com.alibaba:arouter-api:1.3.1') { exclude group: 'com.android.support' } // Arouter库包含的support与项目使用的有冲突
 
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

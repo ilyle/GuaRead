@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/tab_topic"
+            android:icon="@drawable/ic_topic"
+            android:title="@string/topic"/>
+
+        <item
+            android:id="@+id/tab_science"
+            android:icon="@drawable/ic_science"
+            android:title="@string/science"/>
+
+        <!--<item-->
+            <!--android:id="@+id/tab_developer"-->
+            <!--android:icon="@drawable/ic_developer"-->
+            <!--android:title="@string/developer"/>-->
+
+        <!--<item-->
+            <!--android:id="@+id/tab_chaim"-->
+            <!--android:icon="@drawable/ic_chaim"-->
+            <!--android:title="@string/chaim"/>-->
+
+        <!--<item-->
+            <!--android:id="@+id/tab_mine"-->
+            <!--android:icon="@drawable/ic_mine"-->
+            <!--android:title="@string/mine"/>-->
+    </group>
+</menu>

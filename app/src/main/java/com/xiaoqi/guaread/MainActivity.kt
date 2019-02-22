@@ -1,85 +1,89 @@
 package com.xiaoqi.guaread
 
-import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.design.widget.NavigationView
-import android.support.v4.view.GravityCompat
-import android.support.v7.app.ActionBarDrawerToggle
-import android.support.v7.app.AppCompatActivity
-import android.view.Menu
+import android.support.design.widget.BottomNavigationView
 import android.view.MenuItem
+import com.xiaoqi.base.BaseActivity
+import com.xiaoqi.base.BaseFragment
+import com.xiaoqi.provider.ModuleConfig
+import com.xiaoqi.provider.Router
+import com.xiaoqi.science.ui.ScienceFragment
+import com.xiaoqi.topic.ui.TopicFragment
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import java.util.*
 
-class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
+    private var mTopicFragment: BaseFragment? = null
+    private var mScienceFragment: BaseFragment? = null
+    private var mDeveloperFragment: BaseFragment? = null
+    private var mChaimFragment: BaseFragment? = null
+    private var mMineFragment: BaseFragment? = null
+    private val mStack = Stack<BaseFragment>()
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
-        val toggle = ActionBarDrawerToggle(
-            this, drawer_layout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close
-        )
-        drawer_layout.addDrawerListener(toggle)
-        toggle.syncState()
-
-        nav_view.setNavigationItemSelectedListener(this)
+    override fun getLayoutId(): Int {
+        return R.layout.activity_main
     }
 
-    override fun onBackPressed() {
-        if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
-            drawer_layout.closeDrawer(GravityCompat.START)
-        } else {
-            super.onBackPressed()
-        }
+    override fun initView() {
+        initFragment()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.main, menu)
-        return true
+    override fun initData() {
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        when (item.itemId) {
-            R.id.action_settings -> return true
-            else -> return super.onOptionsItemSelected(item)
-        }
+    override fun setListener() {
+        bnv_main.setOnNavigationItemSelectedListener(this)
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
         when (item.itemId) {
-            R.id.nav_camera -> {
-                // Handle the camera action
-            }
-            R.id.nav_gallery -> {
+            R.id.tab_topic -> showFragment(0)
+            R.id.tab_science -> showFragment(1)
+        }
+        return true
+    }
 
-            }
-            R.id.nav_slideshow -> {
+    /**
+     * 初始化fragment
+     */
+    private fun initFragment() {
+        val bt = supportFragmentManager.beginTransaction()
 
-            }
-            R.id.nav_manage -> {
-
-            }
-            R.id.nav_share -> {
-
-            }
-            R.id.nav_send -> {
-
+        for (module in Router.modules) {
+            when (module) {
+                ModuleConfig.MODULE_TOPIC -> mTopicFragment = TopicFragment.newInstance()
+                ModuleConfig.MODULE_SCIENCE -> mScienceFragment = ScienceFragment.newInstance()
             }
         }
 
-        drawer_layout.closeDrawer(GravityCompat.START)
-        return true
+        mTopicFragment?.let {
+            bt.add(R.id.fl_main, it)
+            mStack.add(it)
+        }
+
+        mScienceFragment?.let {
+            bt.add(R.id.fl_main, it)
+            mStack.add(it)
+        }
+
+        if (mStack.size != 0) {
+            bt.commit()
+        }
+    }
+
+    /**
+     * 切换fragment显示
+     * @param position Int
+     */
+    private fun showFragment(position: Int) {
+        if (position >= mStack.size) {
+            return
+        }
+        val bt = supportFragmentManager.beginTransaction()
+        mStack.forEach {
+            bt.hide(it)
+        }
+        bt.show(mStack[position])
+        bt.commit()
     }
 }
