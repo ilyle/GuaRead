@@ -9,6 +9,7 @@ import android.view.ViewGroup
 abstract class BaseFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        init()
         return inflater.inflate(getLayoutId(), container, false)
     }
 
@@ -16,7 +17,6 @@ abstract class BaseFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initView(view)
         initData()
-        initOther()
         setListener()
     }
 
@@ -24,6 +24,11 @@ abstract class BaseFragment : Fragment() {
      * 获取布局文件R.layout.fragment_abc
      */
     abstract fun getLayoutId(): Int
+
+    /**
+     * 初始化操作
+     */
+    open fun init() { }
 
     /**
      * 初始化布局
@@ -34,11 +39,6 @@ abstract class BaseFragment : Fragment() {
      * 初始化数据
      */
     abstract fun initData()
-
-    /**
-     * 初始化操作
-     */
-    open fun initOther() { }
 
     /**
      * 设置监听器

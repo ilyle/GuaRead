@@ -18,9 +18,9 @@ abstract class BaseMvpFragment<T : BasePresenter> : BaseFragment(), BaseView {
 
     lateinit var mActivityComponent: DaggerActivityComponent
 
-    override fun initOther() {
-        injectComponent()
+    override fun init() {
         initActivityInjection()
+        injectComponent()
     }
 
     private fun initActivityInjection() {

@@ -11,7 +11,7 @@ import dagger.Component
  * Mail : 617314917@qq.com
  */
 @ActivityScope
-@Component(dependencies = [ApplicationComponent::class], modules = [ActivityModule::class])
+@Component(modules = [ActivityModule::class], dependencies = [ApplicationComponent::class])
 interface ActivityComponent {
 
     fun context(): Context

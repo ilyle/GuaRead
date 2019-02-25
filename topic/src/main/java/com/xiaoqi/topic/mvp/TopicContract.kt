@@ -15,5 +15,6 @@ interface TopicContract {
 
     interface Presenter: BasePresenter {
 
+        fun listTopic()
     }
 }

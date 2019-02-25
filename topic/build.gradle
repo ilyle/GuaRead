@@ -8,6 +8,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 28
 
@@ -35,6 +37,7 @@ android {
 
 dependencies {
     api project(':provider')
+    kapt 'com.google.dagger:dagger-compiler:2.17' // If you are using Kotlin, replace annotationProcessor with kapt.
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
