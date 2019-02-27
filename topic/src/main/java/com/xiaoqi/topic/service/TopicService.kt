@@ -4,6 +4,7 @@ import com.xiaoqi.topic.api.Api
 import com.xiaoqi.topic.model.bean.TopicData
 import io.reactivex.Observable
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 /**
  * Created by xujie on 2019/2/22.
@@ -13,4 +14,7 @@ interface TopicService {
 
     @GET(Api.TOPIC)
     fun listTopic(): Observable<TopicData>
+
+    @GET(Api.TOPIC)
+    fun listTopic(@Query("lastCursor") lastCursor: Int, @Query("pageSize") pageSize: Int): Observable<TopicData>
 }

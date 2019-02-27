@@ -26,4 +26,20 @@
         <item name="android:minHeight">0dp</item>
         <item name="android:padding">0dp</item>
     </style>
+
+    <style name="TextTitle">
+        <item name="android:textColor">@color/text_black_primary</item>
+        <item name="android:textSize">@dimen/text_title</item>
+    </style>
+
+    <style name="TextContent">
+        <item name="android:textColor">@color/text_black_secondary</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+    </style>
+
+    <style name="Line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+        <item name="android:background">@color/text_black_secondary</item>
+    </style>
 </resources>

@@ -45,6 +45,31 @@ class TopicPresent @Inject constructor(): TopicContract.Presenter {
         mDisposable.add(disposable)
     }
 
+    override fun listTopic(lastCursor: Int, forceUpdate: Boolean, cleanCache: Boolean) {
+        val disposable: Disposable = mModel.listTopic(lastCursor, forceUpdate, cleanCache)!!
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableObserver<MutableList<Topic>>() {
+                override fun onComplete() {
+                    mView.hideLoading()
+                }
+
+                override fun onNext(t: MutableList<Topic>) {
+                    mView.showTopic(t)
+                }
+
+                override fun onError(e: Throwable) {
+                    mView.hideLoading()
+                }
+
+            })
+        mDisposable.add(disposable)
+    }
+
+    override fun getTopicLastOrder(): Int {
+        return mModel.getTopicLastCursor()
+    }
+
     override fun subscribe() {
 
     }

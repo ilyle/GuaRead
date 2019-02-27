@@ -34,15 +34,15 @@ data class Topic(
      * extra : {"instantView":true}
      */
 
-    var id: String?,
+    var id: String,
     var nelData: NelDataBean?,
     var createdAt: String?,
-    var publishDate: String?,
+    var publishDate: String,
     var summary: String?,
     var title: String?,
     var updatedAt: String?,
     var timeline: String?,
-    var order: Int?,
+    var order: Int,
     var extra: ExtraBean?,
     var newsArray: MutableList<NewsArrayBean>?,
     var eventData: MutableList<*>?

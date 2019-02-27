@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cv_item_topic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@color/color_layout_background"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_medium">
+
+        <TextView
+            android:id="@+id/tv_item_topic_title"
+            style="@style/TextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@id/tv_item_topic_content"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="全球通用表情包将增加“月经表情”，最快今年春季上线" />
+
+        <TextView
+            android:id="@+id/tv_item_topic_content"
+            style="@style/TextContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:ellipsize="end"
+            android:maxLines="3"
+            app:layout_constraintBottom_toTopOf="@id/tv_item_topic_view"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_topic_title"
+            tools:text="记者从全球妇女权利慈善机构英国国际计划组织（Plan International UK）官网获悉，历时两年多推动的“月经表情”，终于在今年2月获批 ... 全球统一码联盟日前也透露，刚刚审核通过的230个新表情符号中，包括一个代表月经的表情：一滴红色的液体 ... 据透露，这组新表情最快将于今年春季正式上线。" />
+
+        <TextView
+            android:id="@+id/tv_item_topic_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_32"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textSize="@dimen/sp_16"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_item_topic_content" />
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

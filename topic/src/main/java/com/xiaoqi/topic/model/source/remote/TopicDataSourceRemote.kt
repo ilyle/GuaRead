@@ -13,12 +13,26 @@ import javax.inject.Inject
  * Mail : 617314917@qq.com
  */
 class TopicDataSourceRemote @Inject constructor() : TopicDataSource {
+    override fun getTopicLastCursor(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
-    override fun listTopic(): Observable<MutableList<Topic>>? {
-        return RetrofitClient.getClient()
-            .create(TopicService::class.java)
-            .listTopic()
+
+    override fun listTopic(): Observable<MutableList<Topic>> {
+        return RetrofitClient.getClient().create(TopicService::class.java).listTopic()
             .flatMap {
-                Observable.just(it.data) }
+                Observable.just(it.data)
+            }
+    }
+
+    override fun listTopic(
+        lastCursor: Int,
+        forceUpdate: Boolean,
+        cleanCache: Boolean
+    ): Observable<MutableList<Topic>> {
+        return RetrofitClient.getClient().create(TopicService::class.java).listTopic(lastCursor, pageSize = 20)
+            .flatMap {
+                Observable.just(it.data)
+            }
     }
 }
