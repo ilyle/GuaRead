@@ -93,7 +93,7 @@ class ExtraBean(
      * instantView : true
      */
 
-    var isInstantView: Boolean?
+    var instantView: Boolean?
 )
 
 class NewsArrayBean(

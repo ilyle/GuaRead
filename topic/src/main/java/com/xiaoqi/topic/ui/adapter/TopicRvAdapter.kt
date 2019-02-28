@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.xiaoqi.topic.R
 import com.xiaoqi.topic.model.bean.Topic
@@ -39,13 +40,13 @@ class TopicRvAdapter(context: Context?, topicList: MutableList<Topic>) :
 
         private val tvTitle = view.findViewById<TextView>(R.id.tv_item_topic_title)
         private val tvContent = view.findViewById<TextView>(R.id.tv_item_topic_content)
-        private val tvView = view.findViewById<TextView>(R.id.tv_item_topic_view)
+        private val llView = view.findViewById<LinearLayout>(R.id.ll_item_topic_view)
 
         fun setData(position: Int) {
             val topic = mTopicList[position]
             tvTitle.text = topic.title
             tvContent.text = topic.summary
-            topic.extra?.isInstantView?.let { tvView.visibility = if (it) View.VISIBLE else View.GONE }
+            topic.extra?.instantView?.let { llView.visibility = if (it) View.VISIBLE else View.GONE }
         }
 
     }

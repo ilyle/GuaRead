@@ -69,6 +69,8 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         if (mStack.size != 0) {
             bt.commit()
         }
+
+        showFragment(0)
     }
 
     /**
