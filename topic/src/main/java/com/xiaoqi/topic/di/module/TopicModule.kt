@@ -1,10 +1,11 @@
-package com.xiaoqi.topic.injection.module
+package com.xiaoqi.topic.di.module
 
+import com.xiaoqi.topic.contract.TopicContract
 import com.xiaoqi.topic.model.source.TopicDataSource
 import com.xiaoqi.topic.model.source.repository.TopicDataSourceRepository
-import com.xiaoqi.topic.mvp.TopicContract
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 
 /**
  * Created by xujie on 2019/2/22.
@@ -14,8 +15,8 @@ import dagger.Provides
 class TopicModule(private val view: TopicContract.View) {
 
     @Provides
-    fun provideDataSource(topicDataSource: TopicDataSourceRepository): TopicDataSource {
-        return topicDataSource
+    fun provideDataSource(dataSource: TopicDataSourceRepository): TopicDataSource {
+        return dataSource
     }
 
     @Provides
@@ -23,4 +24,8 @@ class TopicModule(private val view: TopicContract.View) {
         return this.view
     }
 
+    @Provides
+    fun provideDisposable(): CompositeDisposable {
+        return CompositeDisposable()
+    }
 }

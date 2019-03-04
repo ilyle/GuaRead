@@ -7,7 +7,7 @@ import com.xiaoqi.base.BaseFragment
 import com.xiaoqi.provider.ModuleConfig
 import com.xiaoqi.provider.Router
 import com.xiaoqi.science.ui.ScienceFragment
-import com.xiaoqi.topic.ui.TopicFragment
+import com.xiaoqi.topic.ui.fragment.TopicFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 

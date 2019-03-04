@@ -1,4 +1,4 @@
-package com.xiaoqi.topic.api
+package com.xiaoqi.topic.service.api
 
 /**
  * Created by xujie on 2019/2/22.

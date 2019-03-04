@@ -1,4 +1,4 @@
-package com.xiaoqi.topic.mvp
+package com.xiaoqi.topic.contract
 
 import com.xiaoqi.base.mvp.presenter.BasePresenter
 import com.xiaoqi.base.mvp.view.BaseView
@@ -11,15 +11,16 @@ import com.xiaoqi.topic.model.bean.Topic
 interface TopicContract {
 
     interface View: BaseView {
+
         fun showTopic(topicList: MutableList<Topic>)
+
     }
 
     interface Presenter: BasePresenter {
 
-        fun listTopic()
-
         fun listTopic(lastCursor: Int, forceUpdate: Boolean, cleanCache: Boolean)
 
         fun getTopicLastOrder(): Int
+
     }
 }

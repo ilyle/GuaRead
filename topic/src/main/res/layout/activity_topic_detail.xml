@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/margin_medium">
+
+    <TextView
+        android:id="@+id/tv_topic_detail_title"
+        style="@style/TextTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        tools:text="全球通用表情包将增加“月经表情”，最快今年春季上线" />
+
+    <TextView
+        android:id="@+id/tv_topic_detail_date"
+        style="@style/TextContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        tools:text="2019年03月01日 14:06" />
+
+    <View style="@style/Line" />
+
+    <TextView
+        android:id="@+id/tv_topic_detail_content"
+        style="@style/TextContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:layout_marginBottom="@dimen/margin_medium"
+        tools:text="记者从全球妇女权利慈善机构英国国际计划组织（Plan International UK）官网获悉，历时两年多推动的“月经表情”，终于在今年2月获批 ... 全球统一码联盟日前也透露，刚刚审核通过的230个新表情符号中，包括一个代表月经的表情：一滴红色的液体 ... 据透露，这组新表情最快将于今年春季正式上线。" />
+
+    <View style="@style/Line" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_topic_detail_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

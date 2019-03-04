@@ -1,23 +1,23 @@
-package com.xiaoqi.topic.ui
+package com.xiaoqi.topic.ui.fragment
 
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.xiaoqi.base.BaseMvpFragment
 import com.xiaoqi.topic.R
-import com.xiaoqi.topic.injection.component.DaggerTopicComponent
-import com.xiaoqi.topic.injection.module.TopicModule
+import com.xiaoqi.topic.di.module.TopicModule
 import com.xiaoqi.topic.model.bean.Topic
-import com.xiaoqi.topic.mvp.TopicContract
-import com.xiaoqi.topic.mvp.TopicPresent
+import com.xiaoqi.topic.contract.TopicContract
+import com.xiaoqi.topic.di.component.DaggerTopicComponent
+import com.xiaoqi.topic.presenter.TopicPresent
 import com.xiaoqi.topic.ui.adapter.TopicRvAdapter
 import kotlinx.android.synthetic.main.fragment_topic.*
+import javax.inject.Inject
 
 /**
  * Created by xujie on 2019/2/21.
  * Mail : 617314917@qq.com
  */
 class TopicFragment : BaseMvpFragment<TopicPresent>(), TopicContract.View {
-
 
     private lateinit var mAdapter: TopicRvAdapter
 

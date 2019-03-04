@@ -1,9 +1,9 @@
-package com.xiaoqi.base.injection.component
+package com.xiaoqi.base.di.component
 
 import android.app.Activity
 import android.content.Context
-import com.xiaoqi.base.injection.module.ActivityModule
-import com.xiaoqi.base.injection.scope.ActivityScope
+import com.xiaoqi.base.di.module.ActivityModule
+import com.xiaoqi.base.di.scope.ActivityScope
 import dagger.Component
 
 /**

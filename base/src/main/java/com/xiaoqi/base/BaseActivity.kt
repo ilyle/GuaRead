@@ -1,9 +1,7 @@
 package com.xiaoqi.base
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
-import android.view.LayoutInflater
 
 /**
  * Created by xujie on 2019/2/19.
@@ -14,8 +12,8 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(getLayoutId())
-        initView()
         initData()
+        initView()
         initOther()
         setListener()
     }

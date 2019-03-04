@@ -1,7 +1,7 @@
 package com.xiaoqi.base
 
-import com.xiaoqi.base.injection.component.DaggerActivityComponent
-import com.xiaoqi.base.injection.module.ActivityModule
+import com.xiaoqi.base.di.component.DaggerActivityComponent
+import com.xiaoqi.base.di.module.ActivityModule
 import com.xiaoqi.base.mvp.presenter.BasePresenter
 import com.xiaoqi.base.mvp.view.BaseView
 import javax.inject.Inject
@@ -16,6 +16,12 @@ abstract class BaseMvpActivity<T : BasePresenter> : BaseActivity(), BaseView {
     lateinit var mPresenter: T
 
     lateinit var mActivityComponent: DaggerActivityComponent
+
+
+    override fun onDestroy() {
+        super.onDestroy()
+        mPresenter.unsubscribe()
+    }
 
     override fun initOther() {
         initActivityInjection()

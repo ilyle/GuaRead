@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_normal">
+
+    <TextView
+        android:id="@+id/tv_item_news"
+        style="@style/TextContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="特斯拉狂奔：运送第二批Model 3的货船抵达上海港" />
+</LinearLayout>

@@ -1,6 +1,6 @@
 package com.xiaoqi.topic.service
 
-import com.xiaoqi.topic.api.Api
+import com.xiaoqi.topic.service.api.Api
 import com.xiaoqi.topic.model.bean.TopicData
 import io.reactivex.Observable
 import retrofit2.http.GET

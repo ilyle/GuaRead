@@ -1,7 +1,7 @@
-package com.xiaoqi.base.injection.module
+package com.xiaoqi.base.di.module
 
 import android.app.Activity
-import com.xiaoqi.base.injection.scope.ActivityScope
+import com.xiaoqi.base.di.scope.ActivityScope
 import dagger.Module
 import dagger.Provides
 

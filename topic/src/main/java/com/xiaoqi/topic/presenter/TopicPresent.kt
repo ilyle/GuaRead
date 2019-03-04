@@ -1,8 +1,8 @@
-package com.xiaoqi.topic.mvp
+package com.xiaoqi.topic.presenter
 
-import android.util.Log
 import com.xiaoqi.topic.model.bean.Topic
 import com.xiaoqi.topic.model.source.TopicDataSource
+import com.xiaoqi.topic.contract.TopicContract
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -22,31 +22,11 @@ class TopicPresent @Inject constructor(): TopicContract.Presenter {
     @Inject
     lateinit var mModel: TopicDataSource
 
-    private val mDisposable: CompositeDisposable = CompositeDisposable()
-
-    override fun listTopic() {
-        val disposable: Disposable = mModel.listTopic()!!
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : DisposableObserver<MutableList<Topic>>() {
-                override fun onComplete() {
-                    Log.i("xuj", "fafafa")
-                }
-
-                override fun onNext(t: MutableList<Topic>) {
-                    Log.i("xuj", "fafafa")
-                }
-
-                override fun onError(e: Throwable) {
-                    Log.i("xuj", "fafafa")
-                }
-
-            })
-        mDisposable.add(disposable)
-    }
+    @Inject
+    lateinit var mDisposable: CompositeDisposable
 
     override fun listTopic(lastCursor: Int, forceUpdate: Boolean, cleanCache: Boolean) {
-        val disposable: Disposable = mModel.listTopic(lastCursor, forceUpdate, cleanCache)!!
+        val disposable: Disposable = mModel.listTopic(lastCursor, forceUpdate, cleanCache)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeWith(object : DisposableObserver<MutableList<Topic>>() {
@@ -75,6 +55,6 @@ class TopicPresent @Inject constructor(): TopicContract.Presenter {
     }
 
     override fun unsubscribe() {
-
+        mDisposable.clear()
     }
 }

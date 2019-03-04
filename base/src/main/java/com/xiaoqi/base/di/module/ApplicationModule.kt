@@ -1,4 +1,4 @@
-package com.xiaoqi.base.injection.module
+package com.xiaoqi.base.di.module
 
 import android.content.Context
 import com.xiaoqi.base.BaseApplication

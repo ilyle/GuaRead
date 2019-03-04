@@ -22,7 +22,7 @@ object TimeUtil {
         }
     }
 
-    fun countDown(dateString: String): String {
+    fun getFormatDateDesc(dateString: String): String {
         if (TextUtils.isEmpty(dateString)) return ""
         val date: Date
         try {
@@ -63,13 +63,13 @@ object TimeUtil {
             } else if (day > 1) {
                 interval = day.toString() + "天前"
             }
-        } else if (countdownTime / 3600000 < 24 && countdownTime / 3600000 > 0) {
+        } else if (countdownTime / 3600000 in 1..23) {
             val hour = (countdownTime / 3600000).toInt()
             interval = hour.toString() + "小时前"
-        } else if (countdownTime / 60000 < 60 && countdownTime / 60000 > 0) {
+        } else if (countdownTime / 60000 in 1..59) {
             val minute = (countdownTime / 60000).toInt()
             interval = minute.toString() + "分钟前"
-        } else if (countdownTime / 1000 < 60 && countdownTime / 1000 > 0) {
+        } else if (countdownTime / 1000 in 1..59) {
             val second = (countdownTime / 1000).toInt()
             interval = second.toString() + "秒前"
         }

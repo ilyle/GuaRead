@@ -1,7 +1,7 @@
-package com.xiaoqi.base.injection.component
+package com.xiaoqi.base.di.component
 
 import android.content.Context
-import com.xiaoqi.base.injection.module.ApplicationModule
+import com.xiaoqi.base.di.module.ApplicationModule
 import dagger.Component
 import javax.inject.Singleton
 

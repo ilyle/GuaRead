@@ -1,5 +1,8 @@
 package com.xiaoqi.topic.model.bean
 
+import android.os.Parcel
+import android.os.Parcelable
+
 /**
  * Created by xujie on 2019/2/22.
  * Mail : 617314917@qq.com
@@ -35,18 +38,53 @@ data class Topic(
      */
 
     var id: String,
-    var nelData: NelDataBean?,
     var createdAt: String?,
     var publishDate: String,
     var summary: String?,
-    var title: String?,
+    var title: String,
     var updatedAt: String?,
     var timeline: String?,
     var order: Int,
-    var extra: ExtraBean?,
-    var newsArray: MutableList<NewsArrayBean>?,
-    var eventData: MutableList<*>?
-)
+    var newsArray: MutableList<News>?
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readInt(),
+        parcel.createTypedArrayList(News)
+    )
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
+        parcel.writeString(createdAt)
+        parcel.writeString(publishDate)
+        parcel.writeString(summary)
+        parcel.writeString(title)
+        parcel.writeString(updatedAt)
+        parcel.writeString(timeline)
+        parcel.writeInt(order)
+        parcel.writeTypedList(newsArray)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<Topic> {
+        override fun createFromParcel(parcel: Parcel): Topic {
+            return Topic(parcel)
+        }
+
+        override fun newArray(size: Int): Array<Topic?> {
+            return arrayOfNulls(size)
+        }
+    }
+}
 
 data class NelDataBean(
     /**
@@ -78,7 +116,7 @@ data class ResultBean(
     var finance: FinanceBean?
 )
 
-class FinanceBean(
+data class FinanceBean(
     /**
      * code : NASDAQ:TSLA
      * name : 特斯拉
@@ -88,7 +126,7 @@ class FinanceBean(
     var name: String?
 )
 
-class ExtraBean(
+data class ExtraBean(
     /**
      * instantView : true
      */
@@ -96,7 +134,7 @@ class ExtraBean(
     var instantView: Boolean?
 )
 
-class NewsArrayBean(
+data class News(
     /**
      * id : 1405484
      * url : https://tech.sina.cn/it/2019-02-22/detail-ihrfqzka8055381.d.html?from=wap
@@ -120,4 +158,44 @@ class NewsArrayBean(
     var publishDate: String?,
     var language: String?,
     var statementType: Int?
-)
+) : Parcelable {
+    constructor(parcel: Parcel) : this(
+        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Int::class.java.classLoader) as? Int,
+        parcel.readString(),
+        parcel.readString(),
+        parcel.readValue(Int::class.java.classLoader) as? Int
+    )
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeValue(id)
+        parcel.writeString(url)
+        parcel.writeString(title)
+        parcel.writeString(siteName)
+        parcel.writeString(mobileUrl)
+        parcel.writeString(autherName)
+        parcel.writeValue(duplicateId)
+        parcel.writeString(publishDate)
+        parcel.writeString(language)
+        parcel.writeValue(statementType)
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<News> {
+        override fun createFromParcel(parcel: Parcel): News {
+            return News(parcel)
+        }
+
+        override fun newArray(size: Int): Array<News?> {
+            return arrayOfNulls(size)
+        }
+    }
+}

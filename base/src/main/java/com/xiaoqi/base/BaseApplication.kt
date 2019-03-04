@@ -2,8 +2,8 @@ package com.xiaoqi.base
 
 import android.app.Application
 import android.content.Context
-import com.xiaoqi.base.injection.component.DaggerApplicationComponent
-import com.xiaoqi.base.injection.module.ApplicationModule
+import com.xiaoqi.base.di.component.DaggerApplicationComponent
+import com.xiaoqi.base.di.module.ApplicationModule
 
 /**
  * Created by xujie on 2019/2/19.
