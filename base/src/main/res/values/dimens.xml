@@ -8,6 +8,8 @@
     <dimen name="margin_normal">@dimen/dp_8</dimen>
     <dimen name="margin_small">@dimen/dp_4</dimen>
 
+    <dimen name="height_tool_bal">@dimen/dp_45</dimen>
+
     <dimen name="text_title">@dimen/sp_16</dimen>
     <dimen name="text_normal">@dimen/sp_14</dimen>
 

@@ -9,10 +9,15 @@
     <color name="black">#000000</color>
     <color name="white">#ffffff</color>
     <color name="gray">#888888</color>
+    <color name="red">#d81e06</color>
+    <color name="orange">#f07814</color>
+    <color name="yellow">#efb336</color>
+    <color name="blue">#1e81e4</color>
 
     <color name="text_black_primary">#df000000</color> <!-- 主字体颜色 87%黑色 -->
     <color name="text_black_secondary">#54000000</color> <!-- 次要字体颜色 54%黑色 -->
     <color name="text_black_hint">#27000000</color> <!-- 提示类字体颜色 27%黑色 -->
 
     <color name="color_layout_background">#fafafa</color>
+    <color name="color_hint">#e5e5e5</color>
 </resources>

@@ -14,16 +14,25 @@ import io.reactivex.disposables.CompositeDisposable
 @Module
 class TopicModule(private val view: TopicContract.View) {
 
+    /**
+     * 为TopicPresenter的mModel提供依赖
+     */
     @Provides
     fun provideDataSource(dataSource: TopicDataSourceRepository): TopicDataSource {
         return dataSource
     }
 
+    /**
+     * 为TopicPresenter的mView提供依赖
+     */
     @Provides
     fun provideView(): TopicContract.View {
         return this.view
     }
 
+    /**
+     * 为TopicPresenter的mDisposable提供依赖
+     */
     @Provides
     fun provideDisposable(): CompositeDisposable {
         return CompositeDisposable()

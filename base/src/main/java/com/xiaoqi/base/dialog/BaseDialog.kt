@@ -7,8 +7,7 @@ import android.view.*
 import com.xiaoqi.base.R
 
 /**
- * @author mochangsheng
- * @description 基本通用的Dialog
+ * 基本通用的Dialog
  */
 class BaseDialog private constructor(builder: Builder)
     : Dialog(builder.mContext, if (builder.mResStyle != -1) builder.mResStyle else R.style.BaseDialog) {
